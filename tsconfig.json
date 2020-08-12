@@ -18,6 +18,7 @@
 		"out": "docs",
 		"plugin": "typedoc-plugin-markdown",
 		"readme": "./README.md",
-		"hideGenerator": true
+		"hideGenerator": true,
+		"excludeNotExported": true
 	}
 }

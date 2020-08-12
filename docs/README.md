@@ -1,3 +1,7 @@
+[chayns-hooks - v1.0.0](README.md) › [Globals](globals.md)
+
+# chayns-hooks - v1.0.0
+
 <h1 align="center">Welcome to chayns-hooks 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
