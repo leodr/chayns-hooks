@@ -22,7 +22,7 @@
 		"docgen": "rimraf docs && typedoc",
 		"format": "prettier . --write",
 		"lint": "tsc --noEmit && eslint src",
-		"prepublishOnly": "yarn build",
+		"prepublishOnly": "yarn build && yarn readme-gen",
 		"readme-gen": "rimraf temp-docs && typedoc && concat-md --decrease-title-levels temp-docs > README.md && rimraf temp-docs"
 	},
 	"prettier": {
