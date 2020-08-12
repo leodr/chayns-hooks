@@ -14,8 +14,6 @@
 
 > Makes the chayns-js API easier to consume in your react components.
 
-### 🏠 [Homepage](https://github.com/leodr/chayns-hooks#readme)
-
 ## Install
 
 ```sh
@@ -28,13 +26,9 @@ or
 npm install chayns-hooks
 ```
 
-## Author
+Please note that this needs the [chayns-js API](https://github.com/TobitSoftware/chayns-js) to be available on the window object and `chayns.ready` should be finished.
 
-👤 **Leo Driesch**
-
-- Website: leodriesch.com
-- Twitter: [@leodriesch](https://twitter.com/leodriesch)
-- Github: [@leodr](https://github.com/leodr)
+The instructions for how to get started with the `chayns-js` API can be found [here](https://github.com/TobitSoftware/chayns-js#getting-started).
 
 ## 🤝 Contributing
 

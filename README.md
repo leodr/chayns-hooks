@@ -18,8 +18,6 @@
 
 > Makes the chayns-js API easier to consume in your react components.
 
-### 🏠 [Homepage](https://github.com/leodr/chayns-hooks#readme)
-
 ## Install
 
 ```sh
@@ -32,13 +30,9 @@ or
 npm install chayns-hooks
 ```
 
-## Author
+Please note that this needs the [chayns-js API](https://github.com/TobitSoftware/chayns-js) to be available on the window object and `chayns.ready` should be finished.
 
-👤 **Leo Driesch**
-
-- Website: leodriesch.com
-- Twitter: [@leodriesch](https://twitter.com/leodriesch)
-- Github: [@leodr](https://github.com/leodr)
+The instructions for how to get started with the `chayns-js` API can be found [here](https://github.com/TobitSoftware/chayns-js#getting-started).
 
 ## 🤝 Contributing
 
@@ -88,6 +82,11 @@ This project is [MIT](https://github.com/leodr/chayns-hooks/blob/master/LICENSE)
 
 Ƭ **VisibilityEffect**: _function_
 
+A function that can respond to the change of the visibility status of your page.
+
+**`param`** This parameter expresses wether the last visibility status update
+indicates that the page is now shown or not.
+
 #### Type declaration:
 
 ▸ (`isShown`: boolean): _void_
@@ -104,10 +103,13 @@ This project is [MIT](https://github.com/leodr/chayns-hooks/blob/master/LICENSE)
 
 ▸ **useAdminMode**(): _[AdminModeHookReturnValue](#interfacesadminmodehookreturnvaluemd)_
 
-Returns the current status of the admin-switch which will update on change.
-Also exposes methods to manually activate or deactivate the admin mode.
+Using this hook will subscribe your component to the current state of the admin
+mode.
 
 **Returns:** _[AdminModeHookReturnValue](#interfacesadminmodehookreturnvaluemd)_
+
+An object that can be destructed to get access to the current status
+of the admin mode and functions to manually activate or deactivate the admin mode.
 
 ---
 
@@ -128,13 +130,17 @@ The user object for the currently logged in user.
 
 ▸ **useVisibilityEffect**(`effect`: [VisibilityEffect](#visibilityeffect)): _void_
 
+This hook can execute side effects when the visibility status of your page changes.
+
 **Parameters:**
 
-| Name     | Type                                  |
-| -------- | ------------------------------------- |
-| `effect` | [VisibilityEffect](#visibilityeffect) |
+| Name     | Type                                  | Description                                                                                                                                                                                                                              |
+| -------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `effect` | [VisibilityEffect](#visibilityeffect) | This function will be called when the visibility changes and can respond to the change by executing side effects. Consider using `useCallback` with this function, otherwise the listener will be attached and detached on every render. |
 
 **Returns:** _void_
+
+Nothing. Use it similarly to `useEffect`.
 
 <a name="interfacesadminmodehookreturnvaluemd"></a>
 
@@ -158,6 +164,9 @@ The user object for the currently logged in user.
 
 • **activateAdminMode**: _function_
 
+Calling this function will activate the admin mode, if it is currently
+inactive. Otherwise it will do nothing.
+
 #### Type declaration:
 
 ▸ (): _void_
@@ -168,6 +177,9 @@ The user object for the currently logged in user.
 
 • **deactivateAdminMode**: _function_
 
+Calling this function will deactivate the admin mode, if it is active.
+Otherwise it will do nothing.
+
 #### Type declaration:
 
 ▸ (): _void_
@@ -177,6 +189,8 @@ The user object for the currently logged in user.
 ### isAdminMode
 
 • **isAdminMode**: _boolean_
+
+Indicates if the user is currently in admin mode or not.
 
 <a name="interfaceschaynsusermd"></a>
 
@@ -191,8 +205,6 @@ The user object for the currently logged in user.
 ### Properties
 
 - [adminMode](#adminmode)
-- [facebookAccessToken](#optional-facebookaccesstoken)
-- [facebookId](#optional-facebookid)
 - [firstName](#optional-firstname)
 - [groups](#groups)
 - [id](#id)
@@ -209,17 +221,9 @@ The user object for the currently logged in user.
 
 • **adminMode**: _boolean_
 
----
-
-### `Optional` facebookAccessToken
-
-• **facebookAccessToken**? : _undefined | string_
-
----
-
-### `Optional` facebookId
-
-• **facebookId**? : _undefined | string_
+Wether the admin mode is currently active or not. Be careful with this, as
+it might be stale. Use the `useAdminMode` hook when you need access to this
+information.
 
 ---
 
@@ -233,11 +237,17 @@ The user object for the currently logged in user.
 
 • **groups**: _[UACGroup](#interfacesuacgroupmd)[]_
 
+This contains the groups for a user. Will be an empty array if the user is
+not logged in.
+
 ---
 
 ### id
 
 • **id**: _number_
+
+The user-id.for the currently logged in user. Careful: If no user is logged
+in, this will be `0` (not `null` or `undefined`)
 
 ---
 
@@ -263,17 +273,26 @@ The user object for the currently logged in user.
 
 • **name**: _[PossiblyEmptyString](#possiblyemptystring)_
 
+The name for the currently logged in user. Careful: If no user is logged
+in, this value will be an empty string.
+
 ---
 
 ### personId
 
 • **personId**: _[PossiblyEmptyString](#possiblyemptystring)_
 
+The person-id for the currently logged in user. Careful: If no user is logged
+in, this value will be an empty string.
+
 ---
 
 ### tobitAccessToken
 
 • **tobitAccessToken**: _[PossiblyEmptyString](#possiblyemptystring)_
+
+The access token for the currently logged in user. Careful: If no user is
+logged in, the value will be an empty string.
 
 <a name="interfacesuacgroupmd"></a>
 
