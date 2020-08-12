@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"lib": ["ESNext", "DOM"],
+		"outDir": "dist",
+		"strict": true,
+		"target": "ES5"
+	},
+	"include": ["src"],
+	"typedocOptions": {
+		"categoryOrder": ["Functions", "*"],
+		"hideSources": true,
+		"includeVersion": true,
+		"inputFiles": ["./src"],
+		"mode": "file",
+		"out": "docs",
+		"plugin": "typedoc-plugin-markdown",
+		"readme": "./README.md",
+		"hideGenerator": true
+	}
+}
