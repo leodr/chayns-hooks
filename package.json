@@ -21,7 +21,9 @@
 		"clean": "rimraf dist",
 		"docgen": "rimraf docs && typedoc",
 		"format": "prettier . --write",
-		"lint": "tsc --noEmit && eslint src"
+		"lint": "tsc --noEmit && eslint src",
+		"prepublishOnly": "yarn build",
+		"readme-gen": "rimraf temp-docs && typedoc && concat-md --decrease-title-levels temp-docs > README.md && rimraf temp-docs"
 	},
 	"prettier": {
 		"semi": false,
@@ -42,6 +44,7 @@
 	"devDependencies": {
 		"@types/react": "^16.9.46",
 		"@typescript-eslint/eslint-plugin": "^3.9.0",
+		"concat-md": "^0.3.5",
 		"eslint": "^7.6.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-config-standard-with-typescript": "^18.0.2",

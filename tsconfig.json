@@ -11,14 +11,15 @@
 	"include": ["src"],
 	"typedocOptions": {
 		"categoryOrder": ["Functions", "*"],
+		"excludeNotExported": true,
+		"hideBreadcrumbs": true,
+		"hideGenerator": true,
 		"hideSources": true,
-		"includeVersion": true,
 		"inputFiles": ["./src"],
 		"mode": "file",
-		"out": "docs",
+		"name": null,
+		"out": "temp-docs",
 		"plugin": "typedoc-plugin-markdown",
-		"readme": "./README.md",
-		"hideGenerator": true,
-		"excludeNotExported": true
+		"readme": "./readme_template.md"
 	}
 }
