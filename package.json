@@ -1,6 +1,6 @@
 {
 	"name": "chayns-hooks",
-	"version": "1.0.1",
+	"version": "0.0.0-development",
 	"private": false,
 	"description": "Makes the chayns-js API easier to consume in your react components.",
 	"homepage": "https://github.com/leodr/chayns-hooks#readme",
@@ -9,7 +9,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/leodr/chayns-hooks.git"
+		"url": "https://github.com/leodr/chayns-hooks.git"
 	},
 	"license": "MIT",
 	"author": "Leo Driesch",
@@ -29,6 +29,7 @@
 		"prepare": "tsdx build",
 		"prepublishOnly": "yarn build && yarn readme-gen",
 		"readme-gen": "rimraf temp-docs && typedoc && concat-md --decrease-title-levels temp-docs > README.md && rimraf temp-docs",
+		"semantic-release": "semantic-release",
 		"test": "tsdx test --passWithNoTests"
 	},
 	"prettier": {
