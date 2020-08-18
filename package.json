@@ -16,8 +16,12 @@
 	"main": "dist/index.js",
 	"module": "dist/index.esm.js",
 	"types": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"src"
+	],
 	"scripts": {
-		"build": "yarn clean && tsc",
+		"build": "tsdx build",
 		"clean": "rimraf dist",
 		"docgen": "rimraf docs && typedoc",
 		"format": "prettier . --write",
@@ -43,21 +47,32 @@
 	},
 	"devDependencies": {
 		"@types/react": "^16.9.46",
-		"@typescript-eslint/eslint-plugin": "^3.9.0",
+		"@types/react-dom": "^16.9.8",
+		"@typescript-eslint/eslint-plugin": "^3.9.1",
 		"concat-md": "^0.3.5",
-		"eslint": "^7.6.0",
+		"eslint": "^7.7.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-config-standard-with-typescript": "^18.0.2",
 		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^4.2.1",
-		"eslint-plugin-react-hooks": "^4.0.8",
+		"eslint-plugin-react-hooks": "^4.1.0",
 		"eslint-plugin-standard": "^4.0.1",
 		"prettier": "^2.0.5",
 		"prettier-plugin-packagejson": "^2.2.5",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
 		"rimraf": "^3.0.2",
+		"tsdx": "^0.13.2",
+		"tslib": "^2.0.1",
 		"typedoc": "^0.18.0",
-		"typedoc-plugin-markdown": "^2.4.0",
+		"typedoc-plugin-markdown": "^2.4.1",
 		"typescript": "^3.9.7"
+	},
+	"peerDependencies": {
+		"react": "^16.8.0"
+	},
+	"engines": {
+		"node": ">=10"
 	}
 }
