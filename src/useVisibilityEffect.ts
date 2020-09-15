@@ -21,7 +21,9 @@ type VisibilityEffect = (isShown: boolean) => void
 export function useVisibilityEffect(effect: VisibilityEffect): void {
 	useEffect(() => {
 		const listener: chayns.ActivationListener = (update) => {
-			const isShown = update.data.tappEvent === 0
+			const tappEvent = update.tappEvent ?? update.data?.tappEvent
+
+			const isShown = tappEvent === 0
 
 			effect(isShown)
 		}

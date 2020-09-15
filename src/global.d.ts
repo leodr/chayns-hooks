@@ -41,6 +41,7 @@ interface UACGroup {
 }
 
 interface ActivationStatusUpdate {
-	date: string
-	data: { tappEvent: number }
+	date?: string
+	data?: { tappEvent: number }
+	tappEvent?: number
 }
