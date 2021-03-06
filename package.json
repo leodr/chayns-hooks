@@ -37,30 +37,20 @@
 		"singleQuote": true,
 		"useTabs": true
 	},
-	"eslintConfig": {
-		"parserOptions": {
-			"project": "./tsconfig.json"
-		},
-		"extends": [
-			"standard-with-typescript",
-			"plugin:react-hooks/recommended",
-			"prettier",
-			"prettier/@typescript-eslint"
-		]
-	},
 	"devDependencies": {
 		"@types/react": "^17.0.2",
 		"@types/react-dom": "^17.0.1",
-		"@typescript-eslint/eslint-plugin": "^4.16.1",
+		"@typescript-eslint/eslint-plugin": "^4.0.0",
+		"@typescript-eslint/parser": "^4.0.0",
+		"babel-eslint": "^10.0.0",
 		"concat-md": "^0.3.5",
-		"eslint": "^7.21.0",
-		"eslint-config-prettier": "^8.1.0",
-		"eslint-config-standard-with-typescript": "^20.0.0",
-		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-promise": "^4.3.1",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"eslint-plugin-standard": "^5.0.0",
+		"eslint": "^7.5.0",
+		"eslint-config-react-app": "^6.0.0",
+		"eslint-plugin-flowtype": "^5.2.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-react": "^7.20.3",
+		"eslint-plugin-react-hooks": "^4.0.8",
 		"prettier": "^2.2.1",
 		"prettier-plugin-packagejson": "^2.2.10",
 		"react": "^17.0.1",
