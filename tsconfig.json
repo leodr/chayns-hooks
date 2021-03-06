@@ -22,18 +22,5 @@
     "strict": true,
     "target": "ES5"
   },
-  "include": ["src"],
-  "typedocOptions": {
-    "categoryOrder": ["Functions", "*"],
-    "excludeNotExported": true,
-    "hideBreadcrumbs": true,
-    "hideGenerator": true,
-    "hideSources": true,
-    "inputFiles": ["./src"],
-    "mode": "file",
-    "name": null,
-    "out": "temp-docs",
-    "plugin": "typedoc-plugin-markdown",
-    "readme": "./readme_template.md"
-  }
+  "include": ["src"]
 }
