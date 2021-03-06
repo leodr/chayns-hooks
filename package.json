@@ -3,6 +3,12 @@
   "version": "1.0.3",
   "private": false,
   "description": "Makes the chayns-js API easier to consume in your react components.",
+  "keywords": [
+    "react",
+    "chayns",
+    "react-hooks",
+    "chayns-js"
+  ],
   "repository": "github:leodr/chayns-hooks",
   "license": "MIT",
   "author": "Leo Driesch",
