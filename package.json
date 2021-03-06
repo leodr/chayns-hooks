@@ -15,14 +15,9 @@
   ],
   "scripts": {
     "build": "tsdx build",
-    "clean": "rimraf dist",
-    "docgen": "rimraf docs && typedoc",
     "format": "prettier . --write",
     "lint": "tsc --noEmit && eslint src",
-    "prepare": "tsdx build",
     "prepublishOnly": "yarn build && yarn readme-gen",
-    "readme-gen": "rimraf temp-docs && typedoc && concat-md --decrease-title-levels temp-docs > README.md && rimraf temp-docs",
-    "semantic-release": "semantic-release",
     "test": "tsdx test --passWithNoTests"
   },
   "devDependencies": {
@@ -31,7 +26,6 @@
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "babel-eslint": "^10.1.0",
-    "concat-md": "^0.3.5",
     "eslint": "^7.21.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.3.1",
@@ -43,12 +37,8 @@
     "prettier-plugin-packagejson": "^2.2.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rimraf": "^3.0.2",
-    "semantic-release": "^17.4.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
-    "typedoc": "^0.20.30",
-    "typedoc-plugin-markdown": "^3.6.0",
     "typescript": "^4.2.3"
   },
   "peerDependencies": {
