@@ -1,336 +1,164 @@
-<a name="readmemd"></a>
-
-# chayns-hooks
-
-<h1 align="center">Welcome to chayns-hooks 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/leodr/chayns-hooks/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
-  <a href="https://github.com/leodr/chayns-hooks/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/leodr/chayns-hooks" />
-  </a>
-  <a href="https://twitter.com/leodriesch" target="_blank">
-    <img alt="Twitter: leodriesch" src="https://img.shields.io/twitter/follow/leodriesch.svg?style=social" />
-  </a>
+<h1 align="center">chayns-hooks</h1>
+<p align="center">
+    <strong>A collection of React hooks for <a href="https://chayns.net/">chayns®</a> developers.</strong>
+</p>
+<p align="center">
+    <a href="https://github.com/leodr/chayns-hooks/blob/main/LICENSE">
+        <img alt="MIT License" src="https://img.shields.io/github/license/leodr/chayns-hooks?color=%23A855F7&labelColor=%2327272A&style=for-the-badge">
+    </a>
+    <a href="https://github.com/leodr/chayns-hooks/blob/main/package.json">
+        <img alt="David" src="https://img.shields.io/david/leodr/chayns-hooks?color=%236366F1&labelColor=%2327272A&style=for-the-badge">
+    </a>
+    <a href="https://github.com/leodr/chayns-hooks/issues">
+        <img alt="Open GitHub issues" src="https://img.shields.io/github/issues/leodr/chayns-hooks?color=%2310B981&labelColor=%2327272A&style=for-the-badge">
+    </a>
+</p>
+<p align="center">
+    <a href="#-documentation"><b>Documentation</b></a>
+    <span>  •  </span>
+    <a href="#-development"><b>Development</b></a>
+    <span>  •  </span>
+    <a href="#-contribute"><b>Contribute</b></a>
 </p>
 
-> Makes the chayns-js API easier to consume in your react components.
+---
 
-## Install
+`chayns-hooks` packs some of the functionality of the
+[`chayns-js`](https://github.com/TobitSoftware/chayns-js) library as React hooks
+for easier use in React components.
 
-```sh
-yarn add chayns-hooks
+Contrary to `chayns-js`, this library is also fully typed.
+
+<p align="center">
+    <img src="./assets/api.png" alt="Preview of the API" width="700">
+</p>
+
+<br />
+
+## ❯ Documentation
+
+- [`useAdminMode`](#useadminmode)
+- [`useChaynsUser`](#usechaynsuser)
+- [`useVisibilityEffect`](#usevisibilityeffect)
+
+<br>
+
+### `useAdminMode`
+
+Returns wether the user is currently in admin mode, aswell as methods to toggle
+the admin mode from your application code.
+
+> By default any iframe on a page will be reloaded when the admin mode value
+> switches. This hook will register a `chayns.addAdminSwitchListener`, which
+> will prevent the default behavior. You will get the updated value in the
+> `isAdminMode` field and your page will not reload.
+
+#### Example
+
+```ts
+const { isAdminMode, activateAdminMode, deactivateAdminMode } = useAdminMode();
 ```
 
-or
+#### Return values
 
-```sh
-npm install chayns-hooks
+- **`isAdminMode`: `boolean`**
+
+  Wether the user is currently in admin mode.
+
+- **`activateAdminMode`: `() => void`**
+
+  A function to activate admin mode. You will receive the updated value in
+  `isAdminMode`.
+
+- **`deactivateAdminMode`: `() => void`**
+
+  A function to deactivate admin mode. You will receive the updated value in
+  `isAdminMode`.
+
+<br>
+
+### `useChaynsUser`
+
+Returns the user object of the currently logged in user and subscribes to any
+changes to it, including logging in or out.
+
+> By default any iframe on a page will be reloaded when a user logs in or out.
+> This hook will register a `chayns.addAccessTokenChangeListener`, which will
+> prevent the default behavior. You will get the updated value in the `user`
+> field and your page will not reload.
+
+#### Example
+
+```ts
+const user = useChaynsUser();
 ```
 
-Please note that this needs the [chayns-js API](https://github.com/TobitSoftware/chayns-js) to be available on the window object and `chayns.ready` should be finished.
+#### Return value
 
-The instructions for how to get started with the `chayns-js` API can be found [here](https://github.com/TobitSoftware/chayns-js#getting-started).
+- **`user`**
 
-## 🤝 Contributing
+  The
+  [user object](https://github.com/TobitSoftware/chayns-js/wiki/Environmental-Variables#chaynsenvuser)
+  of the currently logged in user.
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/leodr/chayns-hooks/issues).
+<br>
 
-## Show your support
+### `useVisibilityEffect`
 
-Give a ⭐️ if this project helped you!
+This hook allows you to run any side-effect when the visibility of the page
+changes. Use it similar to a `useEffect`, but without a dependency array.
 
-## 📝 License
+#### Example
 
-Copyright © 2020 [Leo Driesch](https://github.com/leodr).<br />
-This project is [MIT](https://github.com/leodr/chayns-hooks/blob/master/LICENSE) licensed.
+```ts
+useVisibilityEffect((isShown: boolean) => {
+  console.log(`The page is now ${isShown ? "shown" : "hidden"}`);
+});
+```
 
-<a name="globalsmd"></a>
+#### Callback arguments
 
-# chayns-hooks
+- **`isShown`**
 
-## Index
+  Indicates wether the page is now hidden (`false`) or shown (`true`).
 
-### Interfaces
+<br>
 
-- [AdminModeHookReturnValue](#interfacesadminmodehookreturnvaluemd)
-- [ChaynsUser](#interfaceschaynsusermd)
-- [UACGroup](#interfacesuacgroupmd)
+## ❯ Development
 
-### Type aliases
+For developing you have to link the project to a React application using
+[`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/).
 
-- [PossiblyEmptyString](#possiblyemptystring)
-- [VisibilityEffect](#visibilityeffect)
+### Releasing a new version on NPM
 
-### Functions
+To release a new version on npm, run `npm version (patch|minor|major)` to
+increase the version. This will create a Git tag for you.
 
-- [useAdminMode](#useadminmode)
-- [useChaynsUser](#usechaynsuser)
-- [useVisibilityEffect](#usevisibilityeffect)
+Push this Git tag to GitHub and a GitHub Action will publish the package for
+you.
 
-## Type aliases
+<br>
 
-### PossiblyEmptyString
+## ❯ Contribute
 
-Ƭ **PossiblyEmptyString**: _string_
+If you think you have any ideas that could benefit the project, feel free to
+create an issue or pull request!
 
----
-
-### VisibilityEffect
-
-Ƭ **VisibilityEffect**: _function_
-
-A function that can respond to the change of the visibility status of your page.
-
-**`param`** This parameter expresses wether the last visibility status update
-indicates that the page is now shown or not.
-
-#### Type declaration:
-
-▸ (`isShown`: boolean): _void_
-
-**Parameters:**
-
-| Name      | Type    |
-| --------- | ------- |
-| `isShown` | boolean |
-
-## Functions
-
-### useAdminMode
-
-▸ **useAdminMode**(): _[AdminModeHookReturnValue](#interfacesadminmodehookreturnvaluemd)_
-
-Using this hook will subscribe your component to the current state of the admin
-mode.
-
-**Returns:** _[AdminModeHookReturnValue](#interfacesadminmodehookreturnvaluemd)_
-
-An object that can be destructed to get access to the current status
-of the admin mode and functions to manually activate or deactivate the admin mode.
+<br>
 
 ---
 
-### useChaynsUser
-
-▸ **useChaynsUser**(): _[ChaynsUser](#interfaceschaynsusermd)_
-
-Returns the current user object and will update the user on access
-token change.
-
-**Returns:** _[ChaynsUser](#interfaceschaynsusermd)_
-
-The user object for the currently logged in user.
-
----
-
-### useVisibilityEffect
-
-▸ **useVisibilityEffect**(`effect`: [VisibilityEffect](#visibilityeffect)): _void_
-
-This hook can execute side effects when the visibility status of your page changes.
-
-**Parameters:**
-
-| Name     | Type                                  | Description                                                                                                                                                                                                                              |
-| -------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `effect` | [VisibilityEffect](#visibilityeffect) | This function will be called when the visibility changes and can respond to the change by executing side effects. Consider using `useCallback` with this function, otherwise the listener will be attached and detached on every render. |
-
-**Returns:** _void_
-
-Nothing. Use it similarly to `useEffect`.
-
-<a name="interfacesadminmodehookreturnvaluemd"></a>
-
-# Interface: AdminModeHookReturnValue
-
-## Hierarchy
-
-- **AdminModeHookReturnValue**
-
-## Index
-
-### Properties
-
-- [activateAdminMode](#activateadminmode)
-- [deactivateAdminMode](#deactivateadminmode)
-- [isAdminMode](#isadminmode)
-
-## Properties
-
-### activateAdminMode
-
-• **activateAdminMode**: _function_
-
-Calling this function will activate the admin mode, if it is currently
-inactive. Otherwise it will do nothing.
-
-#### Type declaration:
-
-▸ (): _void_
-
----
-
-### deactivateAdminMode
-
-• **deactivateAdminMode**: _function_
-
-Calling this function will deactivate the admin mode, if it is active.
-Otherwise it will do nothing.
-
-#### Type declaration:
-
-▸ (): _void_
-
----
-
-### isAdminMode
-
-• **isAdminMode**: _boolean_
-
-Indicates if the user is currently in admin mode or not.
-
-<a name="interfaceschaynsusermd"></a>
-
-# Interface: ChaynsUser
-
-## Hierarchy
-
-- **ChaynsUser**
-
-## Index
-
-### Properties
-
-- [adminMode](#adminmode)
-- [firstName](#optional-firstname)
-- [groups](#groups)
-- [id](#id)
-- [isAdmin](#isadmin)
-- [isAuthenticated](#isauthenticated)
-- [lastName](#optional-lastname)
-- [name](#name)
-- [personId](#personid)
-- [tobitAccessToken](#tobitaccesstoken)
-
-## Properties
-
-### adminMode
-
-• **adminMode**: _boolean_
-
-Wether the admin mode is currently active or not. Be careful with this, as
-it might be stale. Use the `useAdminMode` hook when you need access to this
-information.
-
----
-
-### `Optional` firstName
-
-• **firstName**? : _undefined | string_
-
----
-
-### groups
-
-• **groups**: _[UACGroup](#interfacesuacgroupmd)[]_
-
-This contains the groups for a user. Will be an empty array if the user is
-not logged in.
-
----
-
-### id
-
-• **id**: _number_
-
-The user-id.for the currently logged in user. Careful: If no user is logged
-in, this will be `0` (not `null` or `undefined`)
-
----
-
-### isAdmin
-
-• **isAdmin**: _boolean_
-
----
-
-### isAuthenticated
-
-• **isAuthenticated**: _boolean_
-
----
-
-### `Optional` lastName
-
-• **lastName**? : _undefined | string_
-
----
-
-### name
-
-• **name**: _[PossiblyEmptyString](#possiblyemptystring)_
-
-The name for the currently logged in user. Careful: If no user is logged
-in, this value will be an empty string.
-
----
-
-### personId
-
-• **personId**: _[PossiblyEmptyString](#possiblyemptystring)_
-
-The person-id for the currently logged in user. Careful: If no user is logged
-in, this value will be an empty string.
-
----
-
-### tobitAccessToken
-
-• **tobitAccessToken**: _[PossiblyEmptyString](#possiblyemptystring)_
-
-The access token for the currently logged in user. Careful: If no user is
-logged in, the value will be an empty string.
-
-<a name="interfacesuacgroupmd"></a>
-
-# Interface: UACGroup
-
-## Hierarchy
-
-- **UACGroup**
-
-## Index
-
-### Properties
-
-- [id](#id)
-- [isActive](#isactive)
-- [isSystemGroup](#optional-issystemgroup)
-- [name](#optional-name)
-
-## Properties
-
-### id
-
-• **id**: _number_
-
----
-
-### isActive
-
-• **isActive**: _boolean_
-
----
-
-### `Optional` isSystemGroup
-
-• **isSystemGroup**? : _undefined | false | true_
-
----
-
-### `Optional` name
-
-• **name**? : _undefined | string_
+<p align="center">
+    <sub>
+        Project by Leo Driesch, released under <a href="https://github.com/leodr/chayns-hooks/blob/main/LICENSE">MIT license</a>.
+    </sub>
+</p>
+<p align="center">
+    <a href="https://twitter.com/leodriesch">
+        <img alt="Leo Driesch on Twitter" src="./assets/twitter.svg">
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://github.com/leodr">
+        <img alt="Leo Driesch on GitHub" src="./assets/github.svg">
+    </a>
+</p>
