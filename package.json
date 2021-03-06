@@ -17,7 +17,7 @@
     "build": "tsdx build",
     "format": "prettier . --write",
     "lint": "tsc --noEmit && eslint src",
-    "prepublishOnly": "yarn build && yarn readme-gen",
+    "prepublishOnly": "yarn build",
     "test": "tsdx test --passWithNoTests"
   },
   "devDependencies": {
