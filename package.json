@@ -1,6 +1,6 @@
 {
   "name": "chayns-hooks",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "description": "Makes the chayns-js API easier to consume in your react components.",
   "keywords": [
