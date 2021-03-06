@@ -1,72 +1,67 @@
 {
-	"name": "chayns-hooks",
-	"version": "0.0.0-development",
-	"private": false,
-	"description": "Makes the chayns-js API easier to consume in your react components.",
-	"homepage": "https://github.com/leodr/chayns-hooks#readme",
-	"bugs": {
-		"url": "https://github.com/leodr/chayns-hooks/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/leodr/chayns-hooks.git"
-	},
-	"license": "MIT",
-	"author": "Leo Driesch",
-	"main": "dist/index.js",
-	"module": "dist/index.esm.js",
-	"types": "dist/index.d.ts",
-	"files": [
-		"dist",
-		"src"
-	],
-	"scripts": {
-		"build": "tsdx build",
-		"clean": "rimraf dist",
-		"docgen": "rimraf docs && typedoc",
-		"format": "prettier . --write",
-		"lint": "tsc --noEmit && eslint src",
-		"prepare": "tsdx build",
-		"prepublishOnly": "yarn build && yarn readme-gen",
-		"readme-gen": "rimraf temp-docs && typedoc && concat-md --decrease-title-levels temp-docs > README.md && rimraf temp-docs",
-		"semantic-release": "semantic-release",
-		"test": "tsdx test --passWithNoTests"
-	},
-	"prettier": {
-		"semi": false,
-		"singleQuote": true,
-		"useTabs": true
-	},
-	"devDependencies": {
-		"@types/react": "^17.0.2",
-		"@types/react-dom": "^17.0.1",
-		"@typescript-eslint/eslint-plugin": "^4.0.0",
-		"@typescript-eslint/parser": "^4.0.0",
-		"babel-eslint": "^10.0.0",
-		"concat-md": "^0.3.5",
-		"eslint": "^7.5.0",
-		"eslint-config-react-app": "^6.0.0",
-		"eslint-plugin-flowtype": "^5.2.0",
-		"eslint-plugin-import": "^2.22.0",
-		"eslint-plugin-jsx-a11y": "^6.3.1",
-		"eslint-plugin-react": "^7.20.3",
-		"eslint-plugin-react-hooks": "^4.0.8",
-		"prettier": "^2.2.1",
-		"prettier-plugin-packagejson": "^2.2.10",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"rimraf": "^3.0.2",
-		"semantic-release": "^17.4.1",
-		"tsdx": "^0.14.1",
-		"tslib": "^2.1.0",
-		"typedoc": "^0.20.30",
-		"typedoc-plugin-markdown": "^3.6.0",
-		"typescript": "^4.2.3"
-	},
-	"peerDependencies": {
-		"react": ">=16.8.0"
-	},
-	"engines": {
-		"node": ">=10"
-	}
+  "name": "chayns-hooks",
+  "version": "0.0.0-development",
+  "private": false,
+  "description": "Makes the chayns-js API easier to consume in your react components.",
+  "homepage": "https://github.com/leodr/chayns-hooks#readme",
+  "bugs": {
+    "url": "https://github.com/leodr/chayns-hooks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leodr/chayns-hooks.git"
+  },
+  "license": "MIT",
+  "author": "Leo Driesch",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsdx build",
+    "clean": "rimraf dist",
+    "docgen": "rimraf docs && typedoc",
+    "format": "prettier . --write",
+    "lint": "tsc --noEmit && eslint src",
+    "prepare": "tsdx build",
+    "prepublishOnly": "yarn build && yarn readme-gen",
+    "readme-gen": "rimraf temp-docs && typedoc && concat-md --decrease-title-levels temp-docs > README.md && rimraf temp-docs",
+    "semantic-release": "semantic-release",
+    "test": "tsdx test --passWithNoTests"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.0.0",
+    "@typescript-eslint/parser": "^4.0.0",
+    "babel-eslint": "^10.0.0",
+    "concat-md": "^0.3.5",
+    "eslint": "^7.5.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "prettier": "^2.2.1",
+    "prettier-plugin-packagejson": "^2.2.10",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.4.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typedoc": "^0.20.30",
+    "typedoc-plugin-markdown": "^3.6.0",
+    "typescript": "^4.2.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "engines": {
+    "node": ">=10"
+  }
 }

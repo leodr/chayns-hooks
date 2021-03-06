@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
 /**
  * A function that can respond to the change of the visibility status of your page.
@@ -6,7 +6,7 @@ import { useEffect } from 'react'
  * @param isShown This parameter expresses wether the last visibility status update
  *      indicates that the page is now shown or not.
  */
-type VisibilityEffect = (isShown: boolean) => void
+type VisibilityEffect = (isShown: boolean) => void;
 
 /**
  * This hook can execute side effects when the visibility status of your page changes.
@@ -19,17 +19,17 @@ type VisibilityEffect = (isShown: boolean) => void
  *      every render.
  */
 export function useVisibilityEffect(effect: VisibilityEffect): void {
-	useEffect(() => {
-		const listener: chayns.ActivationListener = (update) => {
-			const tappEvent = update.tappEvent ?? update.data?.tappEvent
+  useEffect(() => {
+    const listener: chayns.ActivationListener = (update) => {
+      const tappEvent = update.tappEvent ?? update.data?.tappEvent;
 
-			const isShown = tappEvent === 0
+      const isShown = tappEvent === 0;
 
-			effect(isShown)
-		}
+      effect(isShown);
+    };
 
-		chayns.addOnActivateListener(listener)
+    chayns.addOnActivateListener(listener);
 
-		return () => chayns.removeOnActivateListener(listener)
-	}, [effect])
+    return () => chayns.removeOnActivateListener(listener);
+  }, [effect]);
 }

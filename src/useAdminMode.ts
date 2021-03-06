@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 interface AdminModeHookReturnValue {
-	/**
-	 * Indicates if the user is currently in admin mode or not.
-	 */
-	isAdminMode: boolean
+  /**
+   * Indicates if the user is currently in admin mode or not.
+   */
+  isAdminMode: boolean;
 
-	/**
-	 * Calling this function will activate the admin mode, if it is currently
-	 * inactive. Otherwise it will do nothing.
-	 */
-	activateAdminMode: () => void
+  /**
+   * Calling this function will activate the admin mode, if it is currently
+   * inactive. Otherwise it will do nothing.
+   */
+  activateAdminMode: () => void;
 
-	/**
-	 * Calling this function will deactivate the admin mode, if it is active.
-	 * Otherwise it will do nothing.
-	 */
-	deactivateAdminMode: () => void
+  /**
+   * Calling this function will deactivate the admin mode, if it is active.
+   * Otherwise it will do nothing.
+   */
+  deactivateAdminMode: () => void;
 }
 
 /**
@@ -27,27 +27,27 @@ interface AdminModeHookReturnValue {
  * of the admin mode and functions to manually activate or deactivate the admin mode.
  */
 export function useAdminMode(): AdminModeHookReturnValue {
-	const [isAdminMode, setIsAdminMode] = useState<boolean>(
-		chayns.env.user.adminMode
-	)
+  const [isAdminMode, setIsAdminMode] = useState<boolean>(
+    chayns.env.user.adminMode
+  );
 
-	useEffect(function registerAdminSwitchListener() {
-		const listener = (): void => setIsAdminMode(chayns.env.user.adminMode)
+  useEffect(function registerAdminSwitchListener() {
+    const listener = (): void => setIsAdminMode(chayns.env.user.adminMode);
 
-		chayns.addAdminSwitchListener(listener)
+    chayns.addAdminSwitchListener(listener);
 
-		return () => {
-			chayns.removeAdminSwitchListener(listener)
-		}
-	}, [])
+    return () => {
+      chayns.removeAdminSwitchListener(listener);
+    };
+  }, []);
 
-	function activateAdminMode(): void {
-		chayns.activateAdminMode()
-	}
+  function activateAdminMode(): void {
+    chayns.activateAdminMode();
+  }
 
-	function deactivateAdminMode(): void {
-		chayns.deactivateAdminMode()
-	}
+  function deactivateAdminMode(): void {
+    chayns.deactivateAdminMode();
+  }
 
-	return { isAdminMode, activateAdminMode, deactivateAdminMode }
+  return { isAdminMode, activateAdminMode, deactivateAdminMode };
 }

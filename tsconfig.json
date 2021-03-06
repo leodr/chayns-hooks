@@ -1,39 +1,39 @@
 {
-	"compilerOptions": {
-		"baseUrl": "./",
-		"declaration": true,
-		"esModuleInterop": true,
-		"importHelpers": true,
-		"isolatedModules": true,
-		"jsx": "react",
-		"lib": ["ESNext", "DOM"],
-		"module": "esnext",
-		"moduleResolution": "node",
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"outDir": "dist",
-		"paths": {
-			"*": ["src/*", "node_modules/*"]
-		},
-		"rootDir": "./src",
-		"sourceMap": true,
-		"strict": true,
-		"target": "ES5"
-	},
-	"include": ["src"],
-	"typedocOptions": {
-		"categoryOrder": ["Functions", "*"],
-		"excludeNotExported": true,
-		"hideBreadcrumbs": true,
-		"hideGenerator": true,
-		"hideSources": true,
-		"inputFiles": ["./src"],
-		"mode": "file",
-		"name": null,
-		"out": "temp-docs",
-		"plugin": "typedoc-plugin-markdown",
-		"readme": "./readme_template.md"
-	}
+  "compilerOptions": {
+    "baseUrl": "./",
+    "declaration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["ESNext", "DOM"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "paths": {
+      "*": ["src/*", "node_modules/*"]
+    },
+    "rootDir": "./src",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES5"
+  },
+  "include": ["src"],
+  "typedocOptions": {
+    "categoryOrder": ["Functions", "*"],
+    "excludeNotExported": true,
+    "hideBreadcrumbs": true,
+    "hideGenerator": true,
+    "hideSources": true,
+    "inputFiles": ["./src"],
+    "mode": "file",
+    "name": null,
+    "out": "temp-docs",
+    "plugin": "typedoc-plugin-markdown",
+    "readme": "./readme_template.md"
+  }
 }
